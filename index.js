@@ -8,7 +8,7 @@ Last Edited 2023/09/19
 //retrieving packages
 const inquirer = require("inquirer");
 const fs = require("fs");
-const {Shape, Triangle, Square, Circle} = require("./lib/shapes.js");
+const {Triangle, Square, Circle} = require("./lib/shapes.js");
 
 //array with questions to get data needed from user to generate logo.svg
 const questions = [
@@ -46,7 +46,7 @@ function writeSVGFile(svgData)
     }
     else //otherwise, inform the user that the logo was successfully written to
     {
-      console.log(`logo.svg successfully created`);
+      console.log(`Generated logo.svg`);
     }
   });
 }
@@ -54,13 +54,16 @@ function writeSVGFile(svgData)
 //function to process logo data from user input & return the result
 function processSVGData(data)
 {
+  //if the user inputted text exceeding three characters in length, throw an error
   if (data.text.length > 3)
   {
     throw new Error("Logo text must be three characters or less");
   }
 
+  //defining empty shape variable
   let shape;
 
+  //assigns empty shape to a specific type based on the shape the user chose, and constructs it using the rest of the user's answers
   if (data.shape === "Triangle")
   {
     shape = new Triangle(data.text, data.textColour, data.shapeColour);
@@ -74,6 +77,7 @@ function processSVGData(data)
     shape = new Circle(data.text, data.textColour, data.shapeColour);
   }
 
+  //renders the svg's structure, puts it together, and attempts to write it to a .svg file
   const svgStructure = shape.render();
   const svgData = `
   <svg width = "300" height = "200" xmlns = "http://www.w3.org/2000/svg">
@@ -95,16 +99,3 @@ function generateSVG()
 
 //begins SVG generation process
 generateSVG();
-
-/*function testSVG()
-{
-  const svgData = `
-  <svg width = "300" height = "200" xmlns = "http://www.w3.org/2000/svg">
-    <polygon points = "150, 18 244, 182 56, 182" fill = "red"/>
-    <text x = "150" y = "127" font-size = "40" font-weight = "bold" fill = "white" text-anchor = "middle" alignment-baseline = "middle">PEE</text>
-  </svg>`;
-
-  writeSVGFile(svgData);
-}
-
-testSVG();*/

@@ -19,7 +19,7 @@ const questions = [
 },
 {
   type: "input",
-  message: "Enter logo text colour",
+  message: "Enter logo text colour (name or hex code)",
   name: "textColour",
 },
 {
@@ -33,12 +33,6 @@ const questions = [
   message: "Enter shape colour (name or hex code)",
   name: "shapeColour",
 }];
-
-/* following test should pass;
-const shape = new Triangle();
-shape.setColor("blue");
-expect(shape.render()).toEqual('<polygon points="150, 18 244, 182 56, 182" fill="blue" />');
-*/
 
 //function which attempts to write logo data to a .svg file
 function writeSVGFile(svgData)
@@ -60,33 +54,31 @@ function writeSVGFile(svgData)
 //function to process logo data from user input & return the result
 function processSVGData(data)
 {
-  //check that logo text is >= 0 & <= 3
-  //check that user entered a valid colour for text
-  //check that user entered a valid colour for shape
-  //use jest for the above checks, and if any of them fail, eject from function, inform user of error in console, and cancel svg generation
-  //map pixel colours based on shape selected, and overlay text to it
-
-  //create new shape based on the one the user selected
+  if (data.text.length > 3)
+  {
+    throw new Error("Logo text must be three characters or less");
+  }
 
   let shape;
 
   if (data.shape === "Triangle")
   {
-    shape = new Triangle(data.shapeColour);
+    shape = new Triangle(data.text, data.textColour, data.shapeColour);
   }
   else if (data.shape === "Square")
   {
-    shape = new Square(data.shapeColour);
+    shape = new Square(data.text, data.textColour, data.shapeColour);
   }
   else if (data.shape === "Circle")
   {
-    shape = new Circle(data.shapeColour);
+    shape = new Circle(data.text, data.textColour, data.shapeColour);
   }
 
   const svgStructure = shape.render();
-  const svgData = `<svg width = "300" height = "200" xmlns = "http://www.w3.org/2000/svg">
-                    ${svgStructure}
-                   </svg>`;
+  const svgData = `
+  <svg width = "300" height = "200" xmlns = "http://www.w3.org/2000/svg">
+    ${svgStructure}
+  </svg>`;
 
   writeSVGFile(svgData);
 }
@@ -106,9 +98,12 @@ generateSVG();
 
 /*function testSVG()
 {
-  svgData = `<svg width = "300" height = "200" xmlns = "http://www.w3.org/2000/svg">
-  <polygon points = "150, 18 244, 182 56, 182" fill = "red"/>
-  </svg>`
+  const svgData = `
+  <svg width = "300" height = "200" xmlns = "http://www.w3.org/2000/svg">
+    <polygon points = "150, 18 244, 182 56, 182" fill = "red"/>
+    <text x = "150" y = "127" font-size = "40" font-weight = "bold" fill = "white" text-anchor = "middle" alignment-baseline = "middle">PEE</text>
+  </svg>`;
+
   writeSVGFile(svgData);
 }
 

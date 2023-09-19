@@ -1,5 +1,0 @@
-
-  <svg width = "300" height = "200" xmlns = "http://www.w3.org/2000/svg">
-    <polygon points = "55, 5 245, 5 245, 195 55, 195" fill = "black"/>
-    <text x = "150" y = "124" font-size = "72" font-weight = "bold" fill = "white" text-anchor = "middle" alignment-baseline = "middle">PEE</text>
-  </svg>

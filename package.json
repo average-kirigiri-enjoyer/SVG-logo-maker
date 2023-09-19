@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "svg-logo-maker",
   "main": "index.js",
-  "scripts": {
-    "test": "console.log(\"test\")"
-  },
+  "scripts": {"test": "jest"},
   "author": "ethan (average-kirigiri-enjoyer)",
   "license": "MIT",
   "dependencies": {

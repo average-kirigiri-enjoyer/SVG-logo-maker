@@ -2,7 +2,7 @@
 ethan (average-kirigiri-enjoyer)
 SCS Boot Camp Module 10 Weekly Challenge - SVG Logo Maker
 Created 2023/09/17
-Last Edited 2023/09/17
+Last Edited 2023/09/19
 */
 
 //retrieving packages
@@ -30,7 +30,7 @@ const questions = [
 },
 {
   type: "input",
-  message: "Enter shape colour",
+  message: "Enter shape colour (name or hex code)",
   name: "shapeColour",
 }];
 
@@ -72,15 +72,15 @@ function processSVGData(data)
 
   if (data.shape === "Triangle")
   {
-
+    shape = new Triangle(data.shapeColour);
   }
   else if (data.shape === "Square")
   {
-    
+    shape = new Square(data.shapeColour);
   }
-  if (data.shape === "Circle")
+  else if (data.shape === "Circle")
   {
-    
+    shape = new Circle(data.shapeColour);
   }
 
   const svgStructure = shape.render();

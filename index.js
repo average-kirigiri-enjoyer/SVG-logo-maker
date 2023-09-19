@@ -14,7 +14,7 @@ const {Triangle, Square, Circle} = require("./lib/shapes.js");
 const questions = [
 {
   type: "input",
-  message: "Enter logo text",
+  message: "Enter logo text (max. 3 characters)",
   name: "text",
 },
 {

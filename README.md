@@ -14,7 +14,7 @@ Download the repository files to your computer, and extract the zipped files to 
 
 ## Usage
 
-Navigate to the repository a git bash shell (or equivalent), and type "node index.js". You will be presented with a series of questions to customize your logo.
+Navigate to the repository in a git bash shell (or equivalent), and type "node index.js". You will be presented with a series of questions to customize your logo.
 
 The first question will ask for the logo's text, which can be anything you like, so long as it's 3 characters or less. If you do not want any text, simply enter nothing. Next up will be the text's colour, in which you can enter the colour's name, or it's hex code. If the colour is not recognized, it will default to black. Then you will be presented with a list of shapes to choose from for your logo; a triangle, circle, or square. After choosing the shape, you will be prompted to choose the shape's colour, the details of which are identical to that of the text's colour.
 

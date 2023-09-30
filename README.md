@@ -2,7 +2,7 @@
 
 ## Description
 
-Having a clean, professional logo is essential for your brand and general web presence as a web developer, but paying a graphic designer to put one together for you can be very finanically taxing, especially when you're just starting out. Thus, this application allows a user to generate a simple but sleek logo via user input in the CLI.
+Having a clean, professional logo is essential for your brand and general web presence as a web developer, but paying a graphic designer to put one together for you can be very financially taxing, especially when you're just starting out. Thus, this application allows a user to generate a simple but sleek logo via user input in the CLI.
 
 ## Installation
 
